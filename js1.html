@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <style type="text/css">
+  	.reds{
+  		color: red;
+  	}
+  	.green{
+  		color: green;
+  	}
+  </style>
+
+</head>
+<body>
+
+<div class="reds">a)  Change the class name </div> <code> 	$('.reds').removeClass('reds').addClass('green');</code>
+
+<div id="user" data-id="9848493101" data-user="Sunita" data-date-of-birth='1990-02-03'>b) Get datasets from dom elements<span id="datasetval"></span></div>
+<code><pre>	const el = document.querySelector('#user');
+	console.log('answer of b= '+el.dataset.user);
+	$("#datasetval").append("Value from DIV dataset ="+el.dataset.user);
+</pre>
+</code>
+<div class="inject">c) Inject new dom element</div>
+<code>    $( ".inject" ).append( "<span style='color:red'>THis is injected</span>" );
+</code>
+<br>
+<div class="ajaxcall">d) AJAX CALL</div> <div class="getcall">GET CALL CLICK ME <span class="result"></span></div>
+<code>
+	<pre>    
+    $('.ajaxcall').on('click', function(){
+            $.ajax({
+                type : 'GET',
+                dataType: 'JSON',
+                url : a.php
+
+            }).done(function(data){
+            	// RESPONSE DATA HERE
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+                //ERROR MSG HERE
+            });
+	 });
+	 </pre>
+	 <br>
+	 <pre>
+    $('.getcall').on('click', function(){
+	    $.get( "test.html", function( data ) {
+	  $( ".result" ).html( data );
+	  //alert( "File Get Success." );
+	});
+	    });
+	    </pre>
+</code>
+
+
+e) 
+<input type="text" class="inputClass" value="input1"><span class="inputset"></span><br>	
+<code>
+var input1 = $('input:text').val();
+<br>$('input:text').val("Hello Value 1 changed");
+<br>
+	
+</code>
+<input type="checkbox" name="a" id="checkbox" >Initially Unchecked <br>
+<code>
+var chk= $('#checkbox').is(":checked") <br>
+ $('#checkbox').prop('checked',true);<br>
+</code>
+
+<select class="sel">
+	<option value="4">4</option>
+	<option value="5" selected>5</option>
+</select>
+<br>
+<code>
+var selval = $(".sel").val();
+<br>
+$(".sel").val(4);
+</code>
+
+
+
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//task a
+    $('.reds').removeClass('reds').addClass('green');
+
+    //task b
+    const el = document.querySelector('#user');
+
+    console.log('answer of b= '+el.dataset.user);
+    $("#datasetval").append("Value from DIV dataset ="+el.dataset.user);
+    //task c
+    $( ".inject" ).append( "<span style='color:red'>THis is injected</span>" );
+
+    //task d
+    $('.ajaxcall').on('click', function(){
+            $.ajax({
+                type : 'GET',
+                dataType: 'JSON',
+                url : a.php
+
+            }).done(function(data){
+            	// RESPONSE DATA HERE
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+                //ERROR MSG HERE
+            });
+	 });
+
+    $('.getcall').on('click', function(){
+	    $.get( "test.html", function( data ) {
+	  $( ".result" ).html( data );
+	  //alert( "File Get Success." );
+	});
+	    });
+
+//task e
+	var input1 = $('input:text').val();
+	console.log(input1);
+
+	$('input:text').val("Hello Value 1 changed");
+
+	var chk= $('#checkbox').is(":checked")
+
+	console.log(chk);
+
+	$('#checkbox').prop('checked',true);
+	
+
+	var selval = $(".sel").val();
+
+	console.log(selval);
+	$(".sel").val(4);
+
+
+
+	});
+
+
+
+</script>
+</html>

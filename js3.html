@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+</head>
+<body>
+<span id="copydata" class="password-span">CLIPBOARD COPY  </span>
+<button id="copyme">Copy</button>
+
+<code>
+	<pre>
+document.getElementById("copyme").addEventListener("click", copy_password);
+function copy_password() {
+    var copyText = document.getElementById("copydata");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
+</pre>
+</code>
+
+</body>
+	<script type="text/javascript">
+		document.getElementById("copyme").addEventListener("click", copy_password);
+
+function copy_password() {
+    var copyText = document.getElementById("copydata");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
+	</script>
+</html>
